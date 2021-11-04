@@ -10,7 +10,7 @@
 
 ![RTL Logo](./octopus-128x128.png)
 
-
+<br>
 
 ## O que vamos aprender ?
 
@@ -24,10 +24,11 @@ Mesmo não sendo a solução de [maior adoção](https://www.npmtrends.com/enzym
 
 Dessa forma, hoje você irá aprender a escrever testes em React! Usando as ferramentas oferecidas tanto para teste de componentes, quanto comportamentos e simulação eventos.
 
-
+<br>
 
 ---
 
+<br>
 
 
 ## Você será capaz de:
@@ -37,11 +38,11 @@ Dessa forma, hoje você irá aprender a escrever testes em React! Usando as ferr
 - Testar fluxos lógicos síncronos e assíncronos;
 - Escrever testes que resistem a refatoração da estrutura dos componentes, sem necessidade de serem refatorados(escalabilidade).
 
-
+<br>
 
 ---
 
-
+<br>
 
 ## Porque isso é importante?
 
@@ -54,15 +55,15 @@ Mas afinal, se a `react-testing-library` não é a mais usada, porque não apren
 - RTL é feito da perspectiva de **pessoa usuária**, e não de **pessoa desenvolvedora**.
 - Permite refatoração da sua arquitetura de componentes.
 
-
+<br>
 
 ---
 
-
+<br>
 
 ## Conteúdos
 
-
+<br>
 
 A *cobertura de teste* e a *cobertura de código* são métricas para facilitar a avaliação da qualidade dos códigos de aplicativo. 
 
@@ -80,11 +81,11 @@ Existem diferentes maneiras de executar a *cobertura de código*, inclusive soft
 
 Seguiremos conhecendo `react-testing-library`, e como fazer testes sempre pensando nesses **casos de uso**.
 
-
+<br>
 
 ---
 
-
+<br>
 
 ### Introdução
 
@@ -124,33 +125,35 @@ Para executarmos o teste, basta utilizar o comando `npm test` dentro da pasta `s
 
 Caso o terminal mostre que não encontrou nenhum teste, podemos apertar a tecla `a` para rodar todos os testes do arquivo.
 
-
+<br>
 
 ![image-20211010093851375](./image-20211010093851375.png)
 
-
+<br>
 
 Depois de apertar a tecla `a`, o terminal deve mostrar quais testes passaram ou não.
 
-
+<br>
 
 ![image-20211010093918701](./image-20211010093918701.png)
 
-
+<br>
 
 O único teste que tinhamos passou, logo, podemos afirmar que foi renderizado o texto "learn react" dentro do componente <App />. Podemos também intencionalmente mudar o texto "learn react" no código, para nos certificarmos que estamos testando o elemento certo, feito isso, o teste deverá acusar o erro junto de sua descrição.
 
-
+<br>
 
 ![image-20211010094116994](./image-20211010094116994.png)
 
-
+<br>
 
 Nas seções seguintes você irá aprender somente os seletores e eventos necessários para a resolução dos exercícios. Não deixe de consultar a documenção se necessário!
 
-
+<br>
 
 ---
+
+<br>
 
 ### Renderização
 
@@ -170,6 +173,8 @@ test('Descrição do teste', () => {
 
 Podemos também renderizar somente o componente que queremos testar na nossa aplicação.
 
+<br>
+
 Exemplo: 
 
 ```javascript
@@ -184,7 +189,7 @@ test('Descrição do teste', () => {
 
 Esse é o primeiro passo para desenvolver um teste, renderizar algo que vai ser testado adiante.
 
-
+<br>
 
 ### Seletores ou Queries
 
@@ -200,7 +205,7 @@ test(`Renderiza um input com a label "Pokemon"`, () => {
 });
 ```
 
-
+<br>
 
 Neste exemplo, usamos o seletor `getByLabelText` para selecionar um elemento através do texto da sua `label`. Em seguida, usamos os matchers do próprio `Jest` para realizar o teste. 
 
@@ -214,7 +219,7 @@ test('Verificando se existe um botão', () => {
 });
 ```
 
-
+<br>
 
 Podemos também verificar se existem múltiplos botões na tela. Digamos que na nossa aplicação existem 4 botões. Nesse caso, podemos utilizar o seletor `getAllByRole` e verificar o comprimento do array de botões que é retornado.
 
@@ -226,7 +231,7 @@ test('Verificando se existe quatro botões', () => {
 });
 ```
 
-
+<br>
 
 Se precisarmos interagir com um botão específico, podemos usar a posição no array de botões que é retornado. Se quisermos usar o último botão da nossa aplicação poderíamos seguir o exemplo:
 
@@ -238,7 +243,7 @@ test('Verificando se existe quatro botões', () => {
 });
 ```
 
-
+<br>
 
 > Atenção! Não é considerado uma boa prática desestruturar seletores direto do render do componente!
 >
@@ -251,8 +256,8 @@ test('Verificando se existe quatro botões', () => {
   expect(buttons).toBeInTheDocument();
 });
 ```
-
-
+<br>
+<br>
 
 
 
@@ -266,7 +271,7 @@ Até o momento, testamos apenas se os elementos estão sendo renderizados ou nã
 npm install --save-dev @testing-library/user-event
 ```
 
-
+<br>
 
 E para utilizar a biblioteca é necessário importar a biblioteca no arquivo de teste também!
 
@@ -274,11 +279,11 @@ E para utilizar a biblioteca é necessário importar a biblioteca no arquivo de 
 import userEvent from '@testing-library/user-event';
 ```
 
-
+<br>
 
 Vamos abordar somente as principais ações de usuário, o evento de click do mouse, e o evento de digitar no teclado. Esses são os eventos necessários para fazer os exercícios do dia. Como sempre, não deixe de consultar a [documentação](https://testing-library.com/docs/ecosystem-user-event) para conhecer outros eventos ou tirar dúvidas!
 
-
+<br>
 
 No exemplo abaixo, a pessoa usuária digita "Pikachu", no input com a label pokémon, e é verificado, se o valor do input é Pikachu.
 
@@ -295,11 +300,11 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
 })
 ```
 
-
+<br>
 
 No próximo exemplo, ocorre a simulação do mesmo evento do teste anterior, e a pessoa clica no botão enviar após digitar "Pikachu" no input, e é esperado que o input fique vazio após apertar o botão.
 
-
+<br>
 
 ```javascript
 import React from 'react'
@@ -316,16 +321,17 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
   expect(input.value).toBe('')
 })
 ```
-
-
-
+<br>
+<br>
 
 
 ---
 
-
+<br>
 
 ## Fixando os aprendizados
+
+<br>
 
 1. Qual o comando utilizado para instalar `react-testing-library` no seu novo projeto ?
 
@@ -335,7 +341,7 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
    - [ ] `npm install react-testing-library`
    - [ ] Não é necessário installar `react-testing-library` em novos projetos
 
-   
+   <br>
 
 2. A `react-testing-library` usa os *matchers* de qual biblioteca?
 
@@ -345,7 +351,7 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
    - [ ] Jasmine
    - [ ] Do próprio RTL
 
-   
+   <br>
 
 3. Qual o matcher é usado para verificar se um seletor/query está no componente renderizado?
 
@@ -355,7 +361,7 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
    - [ ] `toBeInTheDocument()`
    - [ ] `toBeTruthy()`
 
-   
+   <br>
 
 4. Os testes em RTL são bem feitos quando desenvolvidos sob a perspectiva de:
 
@@ -369,7 +375,7 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
 
    - [ ] Pessoa desenvolvedora
 
-     
+     <br>
 
 5. Como é chamada as interação da pessoa usuária com o software, o seus possíveis retornos?
 
@@ -379,7 +385,7 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
    - [ ] Cobertura de teste/Test coverage
    - [ ] Camada de abstração/Abstraction layer
 
-   
+   <br>
 
 6. Qual a biblioteca que usamos preferencialmente para interagir com a aplicação durante os testes?
 
@@ -389,7 +395,7 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
    - [ ] `eventDispatcher`
    - [ ] `fireAction`
 
-   
+   <br>
 
 7. Qual é o comando utilizado para rodar os testes?
 
@@ -399,7 +405,7 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
    - [ ] `npx test`
    - [ ] `npm run jest`
 
-   
+   <br>
 
 8. Qual é a forma correta de simular um click de mouse?
 
@@ -413,7 +419,7 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
 
    - [ ] `userEvent.click()`
 
-   
+   <br>
 
 9. Quais são as propriedades que a função type do userEvent recebe em ordem?
 
@@ -427,7 +433,7 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
 
    - [ ] Somente o seletor.
 
-     
+     <br>
 
 10. Qual dos imports está correto?
 
@@ -445,15 +451,15 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
 
       
 
-      
+<br>      
 
 ---
 
-
+<br>
 
 ## Vamos Praticar
 
-
+<br>
 
 Para nossa prática, você deve criar um novo projeto com o comando:
 
@@ -461,17 +467,17 @@ Para nossa prática, você deve criar um novo projeto com o comando:
 npx create-react-app trybe-exercises-rtl-tests
 ```
 
-
+<br>
 
 Dentro da pasta `src`, você deve criar uma nova pasta chamada `components`, dentro de `components`, uma pasta com o nome do componente que iremos criar, nesse caso, vamos chamar de `Counter`. Dentro da pasta `Counter`, vamos criar  um arquivo chamado `Counter.js`, e um arquivo chamado `Counter.test.js`. Sua estrutura final deve se parecer com:
 
 ![image-20211010102021450](./image-20211010102021450.png)
 
-
+<br>
 
 Cole o código abaixo dentro do componente `Counter.js` e `App.js` respectivamente:
 
-```react
+```javascript
 import React, { Component } from 'react'
 
 class Counter extends Component {
@@ -488,7 +494,7 @@ export default Counter;
 
 ```
 
-```react
+```javascript
 import './App.css';
 import Counter from './components/Counter/Counter'
 
@@ -506,11 +512,11 @@ export default App;
 
 Não se esqueça de deletar o `App.test.js`! Lembre-se que alteramos o conteúdo do App, e não faz mais sentido testar se o link do react é renderizado.
 
-
+<br>
 
 ---
 
-
+<br>
 
 ### Parte 1
 
@@ -521,13 +527,13 @@ Agora que já temos tudo pronto, podemos rodar nossa aplicação com o comando `
 
 Fizemos nosso primeiro componente, e ele já está sendo testado! :punch:
 
-
+<br>
 
 Agora, vamos utilizar um conceito que abordamos no [Bloco 7 do primeiro módulo](https://app.betrybe.com/course/fundamentals/introducao-a-javascript-es6-e-testes-unitarios/primeiros-passos-em-jest/eb321d06-e126-4c84-8d7e-6134973bf081/conteudos/5a3f4780-9606-4659-b2b3-184ae28489ec/testando-em-pequenos-passos/13065d32-f596-46ef-84c0-f4df01d8fd2d?use_case=side_bar) e aplicar o TDD ao nosso desenvolvimento! Vamos testar componentes que ainda não existem na aplicação, tendo este pequeno projeto em mente!
 
 ![image-20211010120041590](./image-20211010120041590.png)
 
-
+<br>
 
 - Teste se tem um Contador que começa com o número 0 quando a aplicação é renderizada.
 
@@ -539,19 +545,19 @@ Agora, vamos utilizar um conceito que abordamos no [Bloco 7 do primeiro módulo]
 
 - Teste se o conteúdo do segundo botão é '' + ''.
 
-  
+  <br>
 
 ![image-20211010120919596](./image-20211010120919596.png)
 
-
+<br>
 
 Os ultimos 4 testes vão falhar, afinal, desenvolvemos os testes antes de fazer as implementações. Agora, vamos atender os requisitos desses testes para que eles passem. Lembre-se, se alguma implementação ainda não passar (e estiver funcionando normalmente no app), pode haver algum erro no teste. Nesse caso, devemos revisar o teste para checar se faz sentido com a nossa implementação! :thinking:
 
-
+<br>
 
 ---
 
-
+<br>
 
 ### Parte 2
 
@@ -561,7 +567,7 @@ Nessa parte dos exercícios, vamos dar vida a nossa aplicação e implementar as
 - Ao clicar no botão " + ", o contador é incrementado pelo valor que está no input.
 - Faça o input se tornar um formulário controlado(controlled form).
 
-
+<br>
 
 Agora que nosso contador funciona, vamos testar as funcionalidades da nossa aplicação com o `user-event`, e desenvolver testes de todos os **casos de uso** (*use cases*) possíveis para nossa aplicação.
 
@@ -571,11 +577,11 @@ Agora que nosso contador funciona, vamos testar as funcionalidades da nossa apli
 - Teste uma simulação da pessoa usuária digitando " 3 " no input, e apertando no botão de decrementar.
 - Teste uma simulação da pessoa usuária digitando " 10 " no input, e apertando no botão de incrementar, e logo em seguida digitando " 3 " no input, e apertando o botão de decrementar.
 
-
+<br>
 
 ---
 
-
+<br>
 
 ### Extra
 
@@ -589,7 +595,7 @@ Nessa parte fica a seu critério, a ordem que você vai desenvolver os requisito
 
   - Teste se o botão decrementa o contador por 5 caso seja clicado.
 
-    
+ <br>   
 
 - Adcione um botão com o texto " +5 " ao lado direito do botão com texto " + "
 
@@ -599,24 +605,24 @@ Nessa parte fica a seu critério, a ordem que você vai desenvolver os requisito
 
   - Teste se o botão incrementa o contador por 5 caso seja clicado.
 
-    
+  <br>  
 
 - Faça o Input ficar com valor vazio se for clicado.
 
   - Testa se o input fica com o valor vazio quando clicado
 
-
+<br>
 
 E pra finalizar, atualize o teste que esperava apenas dois botões, para testar se tem 4 botões !
 
-
-
+<br>
+<br>
 
 
 ---
 
-
-
+<br>
+<br>
 
 
 ## Recursos Adcionais
@@ -627,17 +633,17 @@ E pra finalizar, atualize o teste que esperava apenas dois botões, para testar 
 
 - [RTL Tutorial](https://www.robinwieruch.de/react-testing-library)
 
-
-
+<br>
+<br>
 
 
 ---
 
-
+<br>
 
 ## Gabarito
 
-
+<br>
 
 #### Fixando os aprendizados
 
@@ -717,25 +723,15 @@ E pra finalizar, atualize o teste que esperava apenas dois botões, para testar 
 
 8. Qual é a forma correta de simular um click de mouse?
 
-   - [ ] ```react
-     userEvent.mouse.click()
-     ```
+   - [ ] `userEvent.mouse.click()`
 
-   - [ ] ```react
-     userEvent.keyboard.type()
-     ```
+   - [ ] `userEvent.keyboard.type()`
 
-   - [ ] ```react
-     userEvent.type()
-     ```
+   - [ ] `userEvent.type()`
 
-   - [ ] ```react
-     userEvent('click')
-     ```
+   - [ ] `userEvent('click')`
 
-   - [x] ```react
-     userEvent.click()
-     ```
+   - [x] `userEvent.click()`
 
    
 
@@ -757,25 +753,15 @@ E pra finalizar, atualize o teste que esperava apenas dois botões, para testar 
 
     
 
-    - [ ] ```react
-      import userEvent from '@react/user-event';
-      ```
+    - [ ] `import userEvent from '@react/user-event';`
 
-    - [ ] ```react
-      import userEvent from '@/user-event';
-      ```
+    - [ ] `import userEvent from '@/user-event';`
 
-    - [ ] ```react
-      import userEvent from '@user-event';
-      ```
+    - [ ] `import userEvent from '@user-event';`
 
-    - [ ] ```react
-      import userEvent from '@react-testing-library/user-event';
-      ```
+    - [ ] `import userEvent from '@react-testing-library/user-event';`
 
-    - [x] ```react
-      import userEvent from '@testing-library/user-event';
-      ```
+    - [x] `import userEvent from '@testing-library/user-event';`
 
       
 
