@@ -104,7 +104,7 @@ Dentro da Pasta `src` encontraremos o arquivo `App.test.js`
 
 
 
-```react
+```javascript
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
@@ -158,7 +158,7 @@ Na `RTL`, utilizamos a função `render()` para simular a renderização de um c
 
 Exemplo: 
 
-```react
+```javascript
 import React from 'react';
 import App from '../../App';
 import { render } from '@testing-library/react';
@@ -172,7 +172,7 @@ Podemos também renderizar somente o componente que queremos testar na nossa apl
 
 Exemplo: 
 
-```react
+```javascript
 import React from 'react';
 import ComponenteGenerico from '../../ComponenteGenerico';
 import { render } from '@testing-library/react';
@@ -192,7 +192,7 @@ O `seletor ` ou `querie`, é a forma de capturar elementos específicos da nossa
 
 Exemplo: 
 
-```react
+```javascript
 test(`Renderiza um input com a label "Pokemon"`, () => {
   render(<App />);
   const inputPokemon = screen.getByLabelText('Pokemon');
@@ -218,7 +218,7 @@ test('Verificando se existe um botão', () => {
 
 Podemos também verificar se existem múltiplos botões na tela. Digamos que na nossa aplicação existem 4 botões. Nesse caso, podemos utilizar o seletor `getAllByRole` e verificar o comprimento do array de botões que é retornado.
 
-```react
+```javascript
 test('Verificando se existe quatro botões', () => {
   render(<App />);
   const buttons = screen.getAllByRole('button');
@@ -230,7 +230,7 @@ test('Verificando se existe quatro botões', () => {
 
 Se precisarmos interagir com um botão específico, podemos usar a posição no array de botões que é retornado. Se quisermos usar o último botão da nossa aplicação poderíamos seguir o exemplo:
 
-```react
+```javascript
 test('Verificando se existe quatro botões', () => {
   render(<App />);
   const lastButton = screen.getAllByRole('button')[3];
@@ -244,7 +244,7 @@ test('Verificando se existe quatro botões', () => {
 >
 > Exemplo:
 
-```react
+```javascript
 test('Verificando se existe quatro botões', () => {
   const { getAllByRole } = render(<App />);
   const lastButton = getAllByRole('button')[3];
@@ -270,7 +270,7 @@ npm install --save-dev @testing-library/user-event
 
 E para utilizar a biblioteca é necessário importar a biblioteca no arquivo de teste também!
 
-```react
+```javascript
 import userEvent from '@testing-library/user-event';
 ```
 
@@ -282,7 +282,7 @@ Vamos abordar somente as principais ações de usuário, o evento de click do mo
 
 No exemplo abaixo, a pessoa usuária digita "Pikachu", no input com a label pokémon, e é verificado, se o valor do input é Pikachu.
 
-```react
+```javascript
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -301,7 +301,7 @@ No próximo exemplo, ocorre a simulação do mesmo evento do teste anterior, e a
 
 
 
-```react
+```javascript
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -403,25 +403,15 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
 
 8. Qual é a forma correta de simular um click de mouse?
 
-   - [ ] ```react
-     userEvent.mouse.click()
-     ```
+   - [ ] `userEvent.mouse.click()`
 
-   - [ ] ```react
-     userEvent.keyboard.type()
-     ```
+   - [ ] `userEvent.keyboard.type()`
 
-   - [ ] ```react
-     userEvent.type()
-     ```
+   - [ ] `userEvent.type()`
 
-   - [ ] ```react
-     userEvent('click')
-     ```
+   - [ ] `userEvent('click')`
 
-   - [ ] ```react
-     userEvent.click()
-     ```
+   - [ ] `userEvent.click()`
 
    
 
@@ -443,25 +433,15 @@ test(`Digita Pikachu no input com label "Pokémon"`, () => {
 
     
 
-    - [ ] ```react
-      import userEvent from '@testing-library/user-event';
-      ```
+    - [ ] `import userEvent from '@testing-library/user-event';`
 
-    - [ ] ```react
-      import userEvent from '@/user-event';
-      ```
+    - [ ] `import userEvent from '@/user-event';`
 
-    - [ ] ```react
-      import userEvent from '@user-event';
-      ```
+    - [ ] `import userEvent from '@user-event';`
 
-    - [ ] ```react
-      import userEvent from '@react-testing-library/user-event';
-      ```
+    - [ ] `import userEvent from '@react-testing-library/user-event';`
 
-    - [ ] ```react
-      import userEvent from '@react/user-event';
-      ```
+    - [ ] `import userEvent from '@react/user-event';`
 
       
 
@@ -811,7 +791,7 @@ E pra finalizar, atualize o teste que esperava apenas dois botões, para testar 
 
 ##### Counter.js
 
-```react
+```javascript
 import React, {Component} from 'react';
 
 class Counter extends Component {
@@ -839,7 +819,7 @@ export default Counter;
 
 ##### Counter.test.js
 
-```react
+```javascript
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Counter from '../Counter/Counter';
@@ -906,7 +886,7 @@ describe('Testa o contador', () => {
 
 ##### Counter.js
 
-```react
+```javascript
 import React, { Component } from 'react';
 
 class Counter extends Component {
@@ -981,7 +961,7 @@ export default Counter;
 
 ##### Counter.test.js
 
-```react
+```javascript
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Counter from '../Counter/Counter';
@@ -1065,7 +1045,7 @@ describe('Testa os use cases da aplicação', () => {
 
 ##### Counter.js
 
-```react
+```javascript
 import React, { Component } from 'react';
 
 class Counter extends Component {
@@ -1174,7 +1154,7 @@ export default Counter;
 
 ##### Counter.test.js
 
-```react
+```javascript
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
